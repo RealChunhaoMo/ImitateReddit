@@ -2,11 +2,9 @@ package settings
 
 import (
 	"fmt"
-	"net/http"
 
 	"github.com/fsnotify/fsnotify"
 
-	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 )
 
@@ -56,17 +54,20 @@ type RedisConfig struct {
 func Init() (err error) {
 	viper.SetConfigFile("config.yaml") // 指定配置文件
 	//viper.SetConfigType("yaml")        // 指定配置文件类型
-	viper.AddConfigPath(".")   // 指定查找配置文件的路径
-	err = viper.ReadInConfig() // 读取配置信息
+	viper.AddConfigPath("./conf/") // 指定查找配置文件的路径
+	err = viper.ReadInConfig()     // 读取配置信息
 	if err != nil {
 		// 读取配置信息失败
 		panic(fmt.Errorf("Fatal error config file: %s \n", err))
 	}
 
+	//fmt.Println(viper.IsSet("port"))
 	//把读取到的配置信息，反序列化到全局变量Conf中
 	if err := viper.Unmarshal(Conf); err != nil {
 		fmt.Printf("viper Unmarshal failed!! error: %v\n", err)
 	}
+	//fmt.Println("haha", Conf.Port)
+
 	// 监控配置文件变化
 	viper.WatchConfig()
 	viper.OnConfigChange(func(in fsnotify.Event) {
@@ -75,15 +76,15 @@ func Init() (err error) {
 			fmt.Printf("After config info changed!! viper Unmarshal failed!! error: %v\n", err)
 		}
 	})
-	r := gin.Default()
-	// 访问/version的返回值会随配置文件的变化而变化
-	r.GET("/version", func(c *gin.Context) {
-		c.String(http.StatusOK, viper.GetString("version"))
-	})
-
-	if err := r.Run(
-		fmt.Sprintf(":%d", Conf.Port)); err != nil {
-		panic(err)
-	}
+	//r := gin.Default()
+	//// 访问/version的返回值会随配置文件的变化而变化
+	//r.GET("/version", func(c *gin.Context) {
+	//	c.String(http.StatusOK, Conf.Version)
+	//})
+	//
+	//if err := r.Run(
+	//	fmt.Sprintf(":%d", Conf.Port)); err != nil {
+	//	panic(err)
+	//}
 	return
 }

@@ -27,6 +27,10 @@ import (
 //5.路由注册
 //6.启动服务（优雅地关机）
 func main() {
+	//if len(os.Args) < 2 {
+	//	fmt.Println("忘记输入命令行参数了!!!!!")
+	//	return
+	//}
 	//1.加载配置
 	if err := settings.Init(); err != nil {
 		fmt.Printf("Settings Init failed!%v\n", err)
@@ -53,6 +57,7 @@ func main() {
 	defer redis.Close()
 	//5.路由注册
 	r := routes.Setup()
+	r.Run()
 	//6.启动服务（优雅地关机）
 
 	srv := &http.Server{
