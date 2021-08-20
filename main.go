@@ -1,9 +1,11 @@
 package main
 
 import (
+	"WebApp/controllers"
 	"WebApp/dao/mysql"
 	"WebApp/dao/redis"
 	"WebApp/logger"
+	"WebApp/pkg/snowflake"
 	"WebApp/routes"
 	"WebApp/settings"
 	"context"
@@ -26,6 +28,7 @@ import (
 //4.初始化Redis
 //5.路由注册
 //6.启动服务（优雅地关机）
+
 func main() {
 	//if len(os.Args) < 2 {
 	//	fmt.Println("忘记输入命令行参数了!!!!!")
@@ -37,7 +40,7 @@ func main() {
 		return
 	}
 	//2.初始化日志
-	if err := logger.Init(settings.Conf.LogConfig); err != nil {
+	if err := logger.Init(settings.Conf.LogConfig, settings.Conf.Mode); err != nil {
 		fmt.Printf("logger Init failed!%v\n", err)
 		return
 	}
@@ -55,9 +58,19 @@ func main() {
 		return
 	}
 	defer redis.Close()
+	if err := snowflake.Init(settings.Conf.StartTime, settings.Conf.MachineID); err != nil {
+		fmt.Printf("Snowflake Init Failed! error = %v\n", err)
+		return
+	}
+
+	//设置gin框架内置的参数校验器使用的翻译器
+	if err := controllers.InitTrans("zh"); err != nil {
+		fmt.Printf("controllers.InitTrans Init falied! error = %v\n", err)
+		return
+	}
 	//5.路由注册
-	r := routes.Setup()
-	r.Run()
+	r := routes.Setup(settings.Conf.Mode)
+	r.Run(fmt.Sprintf(":%d", settings.Conf.Port))
 	//6.启动服务（优雅地关机）
 
 	srv := &http.Server{

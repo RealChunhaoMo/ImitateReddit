@@ -1,6 +1,8 @@
 name: "WebApp"
 mode: "dev"
 port: 8081
+start_time: "2021-08-17"
+machine_id: 1
 version: "v1.0.0.8"
 
 log:
@@ -20,7 +22,7 @@ mysql:
   max_idle_conns: 10
 redis:
   host: "127.0.0.1"
-  port: 16379
+  port: 6379
   password: "mch123"
   pool_size: 110
   db: 0
