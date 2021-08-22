@@ -3,6 +3,7 @@ package logic
 import (
 	"WebApp/dao/mysql"
 	"WebApp/modules"
+	"WebApp/pkg/jwt"
 	"WebApp/pkg/snowflake"
 	"errors"
 )
@@ -36,22 +37,27 @@ func SignUp(p *modules.ParamSignUp) (err error) {
 	return
 }
 
-func SignIn(p *modules.ParamSignIn) (err error) {
+func SignIn(p *modules.ParamSignIn) (token string, err error) {
 	var right bool
 	right, err = mysql.CheckUserExist(p.Username)
 	if err != nil {
-		return err
+		return "", err
 	}
 	if !right {
-		return UserNameError
+		return "", UserNameError
 	}
 
-	right, err = mysql.PasswordIsRight(p.Username, p.Password)
+	user := &modules.User{
+		Password: p.Password,
+		UserName: p.Username,
+	}
+	right, err = mysql.PasswordIsRight(user)
 	if err != nil {
-		return err
+		return "", err
 	}
 	if !right {
-		return PasswordError
+		return "", PasswordError
 	}
-	return
+	//生成jwt
+	return jwt.GenToken(user.UserID)
 }

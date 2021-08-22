@@ -204,3 +204,32 @@
 {"level":"DEBUG","time":"2021-08-19T10:19:42.381+0800","caller":"WebApp/main.go:48","msg":"Logger init is ok!!"}
 {"level":"ERROR","time":"2021-08-19T10:19:50.089+0800","caller":"controllers/user.go:71","msg":"SignIn Failed!!!","username":"mocdfhunhao","error":"用户名错误"}
 {"level":"INFO","time":"2021-08-19T10:19:50.089+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0016743}
+{"level":"DEBUG","time":"2021-08-21T17:18:07.460+0800","caller":"WebApp/main.go:48","msg":"Logger init is ok!!"}
+{"level":"ERROR","time":"2021-08-21T17:21:11.642+0800","caller":"controllers/user.go:61","msg":"SignIn Failed!!!","username":"mochunhao","error":"密码错误"}
+{"level":"INFO","time":"2021-08-21T17:21:11.642+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0100305}
+{"level":"ERROR","time":"2021-08-21T17:21:24.669+0800","caller":"controllers/user.go:61","msg":"SignIn Failed!!!","username":"mochunhao","error":"密码错误"}
+{"level":"INFO","time":"2021-08-21T17:21:24.669+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0017404}
+{"level":"ERROR","time":"2021-08-21T17:21:26.084+0800","caller":"controllers/user.go:61","msg":"SignIn Failed!!!","username":"mochunhao","error":"密码错误"}
+{"level":"INFO","time":"2021-08-21T17:21:26.084+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0015046}
+{"level":"ERROR","time":"2021-08-21T17:21:26.936+0800","caller":"controllers/user.go:61","msg":"SignIn Failed!!!","username":"mochunhao","error":"密码错误"}
+{"level":"INFO","time":"2021-08-21T17:21:26.936+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0007983}
+{"level":"ERROR","time":"2021-08-21T17:21:34.106+0800","caller":"controllers/user.go:61","msg":"SignIn Failed!!!","username":"mochunhao","error":"密码错误"}
+{"level":"INFO","time":"2021-08-21T17:21:34.106+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0006294}
+{"level":"ERROR","time":"2021-08-21T17:21:34.942+0800","caller":"controllers/user.go:61","msg":"SignIn Failed!!!","username":"mochunhao","error":"密码错误"}
+{"level":"INFO","time":"2021-08-21T17:21:34.942+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0015063}
+{"level":"ERROR","time":"2021-08-21T17:21:51.747+0800","caller":"controllers/user.go:61","msg":"SignIn Failed!!!","username":"mochunhao","error":"密码错误"}
+{"level":"INFO","time":"2021-08-21T17:21:51.747+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0015111}
+{"level":"ERROR","time":"2021-08-21T17:21:52.817+0800","caller":"controllers/user.go:61","msg":"SignIn Failed!!!","username":"mochunhao","error":"密码错误"}
+{"level":"INFO","time":"2021-08-21T17:21:52.817+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0007447}
+{"level":"ERROR","time":"2021-08-21T17:24:27.380+0800","caller":"controllers/user.go:19","msg":"SignUp with invalid param","error":"Key: 'ParamSignUp.re_password' Error:Field validation for 're_password' failed on the 'required' tag"}
+{"level":"INFO","time":"2021-08-21T17:24:27.380+0800","caller":"logger/logger.go:81","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.000626}
+{"level":"INFO","time":"2021-08-21T17:24:43.773+0800","caller":"logger/logger.go:81","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0112814}
+{"level":"ERROR","time":"2021-08-21T17:24:59.896+0800","caller":"controllers/user.go:61","msg":"SignIn Failed!!!","username":"wjundong","error":"密码错误"}
+{"level":"INFO","time":"2021-08-21T17:24:59.896+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0019526}
+{"level":"DEBUG","time":"2021-08-21T17:33:55.349+0800","caller":"WebApp/main.go:48","msg":"Logger init is ok!!"}
+{"level":"ERROR","time":"2021-08-21T17:34:15.052+0800","caller":"controllers/user.go:19","msg":"SignUp with invalid param","error":"Key: 'ParamSignUp.re_password' Error:Field validation for 're_password' failed on the 'required' tag"}
+{"level":"INFO","time":"2021-08-21T17:34:15.053+0800","caller":"logger/logger.go:81","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0007045}
+{"level":"INFO","time":"2021-08-21T17:34:30.903+0800","caller":"logger/logger.go:81","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0047934}
+{"level":"ERROR","time":"2021-08-21T17:34:42.274+0800","caller":"controllers/user.go:46","msg":"SignIn with invalid param","uername":"","error":"invalid character '}' looking for beginning of object key string"}
+{"level":"INFO","time":"2021-08-21T17:34:42.274+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0001413}
+{"level":"INFO","time":"2021-08-21T17:34:48.011+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0021445}

@@ -56,11 +56,12 @@ func SignInHandler(c *gin.Context) {
 	}
 
 	// 2.业务处理
-	if err := logic.SignIn(p); err != nil {
+	token, err := logic.SignIn(p)
+	if err != nil {
 		zap.L().Error("SignIn Failed!!!", zap.String("username", p.Username), zap.Error(err))
 		ResponseError(c, CodePasswordError)
 		return
 	}
 	// 3.返回响应
-	ResponseSuccess(c, nil)
+	ResponseSuccess(c, token)
 }

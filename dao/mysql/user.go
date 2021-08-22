@@ -36,14 +36,13 @@ func EncryptPassword(OriginPassword string) string {
 }
 
 // PasswordIsRight 检查用户输入的密码是否正确
-func PasswordIsRight(UserName, Password string) (bool, error) {
-	sqlStr := `select password from user where username = ?`
-
+func PasswordIsRight(p *modules.User) (bool, error) {
+	sqlStr := `select user_id,username,password from user where username = ?`
+	SignInPassword := p.Password
 	//因为当时注册的时候，用户的密码加密了那么此时密码验证也要用加密形式验证
-	Password = EncryptPassword(Password)
-	var OriginPassword string
-	if err := db.Get(&OriginPassword, sqlStr, UserName); err != nil {
+	Password := EncryptPassword(SignInPassword)
+	if err := db.Get(p, sqlStr, p.UserName); err != nil {
 		return false, err
 	}
-	return OriginPassword == Password, nil
+	return p.Password == Password, nil
 }
