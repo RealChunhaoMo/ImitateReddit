@@ -233,3 +233,6 @@
 {"level":"ERROR","time":"2021-08-21T17:34:42.274+0800","caller":"controllers/user.go:46","msg":"SignIn with invalid param","uername":"","error":"invalid character '}' looking for beginning of object key string"}
 {"level":"INFO","time":"2021-08-21T17:34:42.274+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0001413}
 {"level":"INFO","time":"2021-08-21T17:34:48.011+0800","caller":"logger/logger.go:81","msg":"/signin","status":200,"method":"POST","path":"/signin","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0021445}
+{"level":"DEBUG","time":"2021-08-24T10:16:23.353+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-08-24T10:37:39.148+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-08-24T10:41:04.762+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}

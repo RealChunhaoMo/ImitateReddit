@@ -34,6 +34,7 @@ func main() {
 	//	fmt.Println("忘记输入命令行参数了!!!!!")
 	//	return
 	//}
+	time.Sleep(time.Second * 5)
 	//1.加载配置
 	if err := settings.Init(); err != nil {
 		fmt.Printf("Settings Init failed!%v\n", err)
