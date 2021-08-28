@@ -3,6 +3,7 @@ package controllers
 import (
 	"WebApp/logic"
 	"WebApp/modules"
+	"fmt"
 
 	"github.com/go-playground/validator/v10"
 
@@ -16,6 +17,7 @@ func SignUpHandler(c *gin.Context) {
 	p := new(modules.ParamSignUp)
 	if err := c.ShouldBindJSON(p); err != nil {
 		//请求参数有误，返回响应
+		fmt.Println("sbsb ", p.Username, p.Password, "ggglxx ", p.RePassword)
 		zap.L().Error("SignUp with invalid param", zap.Error(err))
 		errs, ok := err.(validator.ValidationErrors)
 		// 非validator.ValidationErrors类型错误直接返回
@@ -43,7 +45,7 @@ func SignInHandler(c *gin.Context) {
 	p := new(modules.ParamSignIn)
 	if err := c.ShouldBindJSON(p); err != nil {
 		//请求参数有误，返回响应
-		zap.L().Error("SignIn with invalid param", zap.String("uername", p.Username), zap.Error(err))
+		zap.L().Error("SignIn with invalid param", zap.String("username", p.Username), zap.Error(err))
 		errs, ok := err.(validator.ValidationErrors)
 		// 非validator.ValidationErrors类型错误直接返回
 		if !ok {

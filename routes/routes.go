@@ -2,7 +2,6 @@ package routes
 
 import (
 	"WebApp/controllers"
-	"WebApp/controllers/middlewares"
 	"WebApp/logger"
 	"net/http"
 
@@ -28,13 +27,18 @@ func Setup(mode string) *gin.Engine {
 	//})
 
 	v1 := r.Group("/api/v1")
-	v1.GET("/ping", middlewares.JWTAuthMiddleware(), func(c *gin.Context) {
-		c.String(http.StatusOK, "pong")
-	})
+	//v1.GET("/ping", middlewares.JWTAuthMiddleware(), func(c *gin.Context) {
+	//	c.String(http.StatusOK, "pong")
+	//})
+	//v1.Use(middlewares.JWTAuthMiddleware())
 	v1.POST("/signup", controllers.SignUpHandler)
 	v1.POST("/login", controllers.SignInHandler)
 	v1.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "SignUp successfully!!")
 	})
+	{
+		v1.GET("/Community", controllers.CommunityHandler)
+		v1.GET("/Community/:id", controllers.CommunityDetailHandler)
+	}
 	return r
 }
