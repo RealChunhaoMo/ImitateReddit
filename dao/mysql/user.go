@@ -4,6 +4,7 @@ import (
 	"WebApp/modules"
 	"crypto/md5"
 	"encoding/hex"
+	"fmt"
 )
 
 const secret = "www.bilibili.com"
@@ -45,4 +46,12 @@ func PasswordIsRight(p *modules.User) (bool, error) {
 		return false, err
 	}
 	return p.Password == Password, nil
+}
+
+func GetUserByID(uid int64) (user *modules.User, err error) {
+	sqlStr := `select user_id,username from user where user_id = ?`
+	fmt.Println("uid = ", uid)
+	user = new(modules.User)
+	err = db.Get(user, sqlStr, uid)
+	return
 }
