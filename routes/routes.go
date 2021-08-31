@@ -31,18 +31,21 @@ func Setup(mode string) *gin.Engine {
 	//v1.GET("/ping", middlewares.JWTAuthMiddleware(), func(c *gin.Context) {
 	//	c.String(http.StatusOK, "pong")
 	//})
-	v1.Use(middlewares.JWTAuthMiddleware())
+
 	v1.POST("/signup", controllers.SignUpHandler)
 	v1.POST("/login", controllers.SignInHandler)
 	v1.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "SignUp successfully!!")
 	})
+	v1.GET("/Community", controllers.CommunityHandler)
+	v1.GET("/Community/:id", controllers.CommunityDetailHandler)
+	v1.GET("/post/:id", controllers.GetPostDetailHandler)
+	v1.GET("/postlist", controllers.GetPostListHandler)
 
+	v1.Use(middlewares.JWTAuthMiddleware())
 	{
-		v1.GET("/Community", controllers.CommunityHandler)
-		v1.GET("/Community/:id", controllers.CommunityDetailHandler)
 		v1.POST("/post", controllers.CreatePostHandler)
-		v1.GET("/post/:id", controllers.GetPostDetailHandler)
+		v1.POST("/vote", controllers.PostVoteHandler)
 	}
 	return r
 }

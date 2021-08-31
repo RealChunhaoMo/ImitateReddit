@@ -33,7 +33,7 @@ func SignUpHandler(c *gin.Context) {
 	// 2.业务处理
 	if err := logic.SignUp(p); err != nil {
 		zap.L().Error("SignUp Failed!!!", zap.Error(err))
-		ResponseError(c, CodeSignUpError)
+		ResponseError(c, CodeUserExist)
 		return
 	}
 	// 3.返回响应
@@ -58,12 +58,16 @@ func SignInHandler(c *gin.Context) {
 	}
 
 	// 2.业务处理
-	token, err := logic.SignIn(p)
+	user, err := logic.SignIn(p)
 	if err != nil {
 		zap.L().Error("SignIn Failed!!!", zap.String("username", p.Username), zap.Error(err))
 		ResponseError(c, CodePasswordError)
 		return
 	}
 	// 3.返回响应
-	ResponseSuccess(c, token)
+	ResponseSuccess(c, gin.H{
+		"user_id":  fmt.Sprintf("%d", user.UserID),
+		"username": user.UserName,
+		"token":    user.Token,
+	})
 }

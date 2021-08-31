@@ -41,3 +41,31 @@ func GetPostDetail(id int64) (data *modules.ApiPostDetail, err error) {
 	data.AuthorName = user.UserName
 	return
 }
+
+func GetPostList(page, size int64) (data []*modules.ApiPostDetail, err error) {
+	posts, err := mysql.GetPostList(page, size)
+	if err != nil {
+		return nil, err
+	}
+	data = make([]*modules.ApiPostDetail, 0, len(posts))
+	for _, post := range posts {
+		//根据作者id查询作者信息
+		user, err := mysql.GetUserByID(post.AuthorID)
+		if err != nil {
+			zap.L().Error("mysql.GetUserByID(post.AuthorID)", zap.Error(err))
+			continue
+		}
+		community, err := mysql.GetCommunityDetailByID(post.CommunityID)
+		if err != nil {
+			zap.L().Error("mysql.GetCommunityDetailByID(post.CommunityID)", zap.Error(err))
+			continue
+		}
+		PostDetail := &modules.ApiPostDetail{
+			AuthorName:      user.UserName,
+			Post:            post,
+			CommunityDetail: community,
+		}
+		data = append(data, PostDetail)
+	}
+	return
+}

@@ -16,7 +16,7 @@ type MyClaims struct {
 }
 
 //然后我们定义JWT的过期时间
-const TokenExpireDuration = time.Hour
+const TokenExpireDuration = 2400 * time.Hour
 
 var MySecret = []byte("stay hungry,stay foolish!!")
 

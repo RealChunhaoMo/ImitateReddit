@@ -37,27 +37,32 @@ func SignUp(p *modules.ParamSignUp) (err error) {
 	return
 }
 
-func SignIn(p *modules.ParamSignIn) (token string, err error) {
+func SignIn(p *modules.ParamSignIn) (user *modules.User, err error) {
 	var right bool
 	right, err = mysql.CheckUserExist(p.Username)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 	if !right {
-		return "", UserNameError
+		return nil, UserNameError
 	}
 
-	user := &modules.User{
+	user = &modules.User{
 		Password: p.Password,
 		UserName: p.Username,
 	}
 	right, err = mysql.PasswordIsRight(user)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 	if !right {
-		return "", PasswordError
+		return nil, PasswordError
 	}
 	//生成jwt
-	return jwt.GenToken(user.UserID)
+	token, err := jwt.GenToken(user.UserID)
+	if err != nil {
+		return nil, err
+	}
+	user.Token = token
+	return
 }
