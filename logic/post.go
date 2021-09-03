@@ -2,8 +2,10 @@ package logic
 
 import (
 	"WebApp/dao/mysql"
+	"WebApp/dao/redis"
 	"WebApp/modules"
 	"WebApp/pkg/snowflake"
+	"fmt"
 
 	"go.uber.org/zap"
 )
@@ -11,8 +13,18 @@ import (
 func CreatePost(p *modules.Post) (err error) {
 	//1.生成帖子ID
 	p.ID = snowflake.GenID()
-	//2.保存到数据库
-	return mysql.CreatePost(p)
+	//2.保存到数据库，并把创建帖子的时间存到Redis
+	err = mysql.CreatePost(p)
+	if err != nil {
+		//fmt.Println("MysqlError")
+		return err
+	}
+	err = redis.CreatePost(p.ID)
+	if err != nil {
+		fmt.Println("RedisError")
+		return err
+	}
+	return err
 	//3.返回
 }
 
