@@ -2,12 +2,10 @@ package redis
 
 import (
 	"errors"
-	"fmt"
+	"strconv"
 	"time"
 
 	"github.com/go-redis/redis"
-
-	"go.uber.org/zap"
 )
 
 const AWeekInSeconds = 24 * 3600 * 7
@@ -42,15 +40,24 @@ var (
 如果超过了时间限制，那么投票的结果就国定了，存到MySql里就好了
 */
 
-func CreatePost(PostID int64) error {
-	_, err := client.ZAdd(GetFullkey(KeyPostTimeZset), redis.Z{
+func CreatePost(PostID, CommunityID int64) error {
+	pipeline := client.TxPipeline()
+	//添加帖子创建的时间
+	pipeline.ZAdd(GetFullkey(KeyPostTimeZset), redis.Z{
 		Score:  float64(time.Now().Unix()),
 		Member: PostID,
-	}).Result()
-	fmt.Printf("redis error: %#v\n", err)
-	if err != nil {
-		zap.L().Error("client.ZAdd failed", zap.Error(err))
-	}
+	})
+
+	//初始化帖子的分数
+	pipeline.ZAdd(GetFullkey(KeyPostScoreZset), redis.Z{
+		Score:  float64(time.Now().Unix()),
+		Member: PostID,
+	})
+
+	//把帖子id放入社区的set中
+	ckey := GetFullkey(keyCommunitSetPF + strconv.Itoa(int(CommunityID)))
+	pipeline.SAdd(ckey, PostID)
+	_, err := pipeline.Exec()
 	return err
 }
 
@@ -63,19 +70,17 @@ func VoteForPost(userID, PostID string, CurrentVote float64) error {
 	//2.更新帖子的分数
 	//2.1去查当前用户的投票情况
 	LastVote := client.ZScore(GetFullkey(KeyPostVotedZsetPF+PostID), userID).Val()
-	_, err := client.ZIncrBy(GetFullkey(KeyPostScoreZset), (CurrentVote-LastVote)*float64(ScorePerVote), PostID).Result()
-	if err != nil {
-		zap.L().Error("client.ZIncrBy failed", zap.Error(err))
-		return err
-	}
+	pipeline := client.TxPipeline()
+	pipeline.ZIncrBy(GetFullkey(KeyPostScoreZset), (CurrentVote-LastVote)*float64(ScorePerVote), PostID).Result()
 	//3.处理用户的投票
 	if CurrentVote == 0 {
-		_, err = client.ZRem(GetFullkey(KeyPostVotedZsetPF+PostID), userID).Result()
+		pipeline.ZRem(GetFullkey(KeyPostVotedZsetPF+PostID), userID)
 	} else {
-		_, err = client.ZAdd(GetFullkey(KeyPostVotedZsetPF+PostID), redis.Z{
+		pipeline.ZAdd(GetFullkey(KeyPostVotedZsetPF+PostID), redis.Z{
 			Score:  CurrentVote,
 			Member: userID,
-		}).Result()
+		})
 	}
+	_, err := pipeline.Exec()
 	return err
 }

@@ -41,7 +41,7 @@ func Setup(mode string) *gin.Engine {
 	v1.GET("/Community/:id", controllers.CommunityDetailHandler)
 	v1.GET("/post/:id", controllers.GetPostDetailHandler)
 	v1.GET("/postlist", controllers.GetPostListHandler)
-
+	v1.GET("/postlist2", controllers.GetPostListHandler2)
 	v1.Use(middlewares.JWTAuthMiddleware())
 	{
 		v1.POST("/post", controllers.CreatePostHandler)

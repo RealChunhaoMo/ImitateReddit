@@ -871,3 +871,70 @@
 {"level":"INFO","time":"2021-09-03T16:13:50.701+0800","caller":"logger/logger.go:81","msg":"/api/v1/vote","status":200,"method":"POST","path":"/api/v1/vote","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0004978}
 {"level":"DEBUG","time":"2021-09-03T16:14:03.996+0800","caller":"logic/vote.go:12","msg":"PostVote","userID":6270743918678016,"PostID":"6275362447167488","VoteType":-1}
 {"level":"INFO","time":"2021-09-03T16:14:03.997+0800","caller":"logger/logger.go:81","msg":"/api/v1/vote","status":200,"method":"POST","path":"/api/v1/vote","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0009838}
+{"level":"DEBUG","time":"2021-09-03T16:14:36.347+0800","caller":"logic/vote.go:12","msg":"PostVote","userID":6270743918678016,"PostID":"6275362447167488","VoteType":1}
+{"level":"INFO","time":"2021-09-03T16:14:36.348+0800","caller":"logger/logger.go:81","msg":"/api/v1/vote","status":200,"method":"POST","path":"/api/v1/vote","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0006873}
+{"level":"DEBUG","time":"2021-09-03T16:19:48.764+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T16:37:37.591+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T16:38:09.682+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T16:38:25.930+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T16:38:38.676+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T17:28:02.820+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T17:29:51.140+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T17:30:00.461+0800","caller":"logic/vote.go:12","msg":"PostVote","userID":6270743918678016,"PostID":"6275362447167488","VoteType":0}
+{"level":"INFO","time":"2021-09-03T17:30:00.462+0800","caller":"logger/logger.go:81","msg":"/api/v1/vote","status":200,"method":"POST","path":"/api/v1/vote","query":"","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0018046}
+{"level":"DEBUG","time":"2021-09-03T21:43:05.004+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T21:47:53.356+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T21:48:09.130+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T22:05:21.285+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T22:47:36.303+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T22:48:43.353+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T22:52:42.876+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T22:52:59.730+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T22:53:18.513+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T22:53:48.108+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T23:40:39.467+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"ERROR","time":"2021-09-03T23:43:41.062+0800","caller":"controllers/post.go:95","msg":"logic.GetPostList()","error":"sql: converting argument $1 type: unsupported type []interface {}, a slice of interface"}
+{"level":"INFO","time":"2021-09-03T23:43:41.062+0800","caller":"logger/logger.go:81","msg":"/api/v1/postlist2","status":200,"method":"GET","path":"/api/v1/postlist2","query":"page=1&size=2&order=time","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0017398}
+{"level":"DEBUG","time":"2021-09-03T23:45:21.681+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"INFO","time":"2021-09-03T23:45:28.212+0800","caller":"logger/logger.go:81","msg":"/api/v1/postlist2","status":200,"method":"GET","path":"/api/v1/postlist2","query":"page=1&size=2&order=time","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.014864}
+{"level":"DEBUG","time":"2021-09-03T23:47:31.298+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T23:47:32.294+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T23:48:08.548+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T23:48:17.743+0800","caller":"logic/post.go:96","msg":"GetPostList2","ids":["6275362447167488","5687489993904128"]}
+{"level":"INFO","time":"2021-09-03T23:48:17.747+0800","caller":"logger/logger.go:81","msg":"/api/v1/postlist2","status":200,"method":"GET","path":"/api/v1/postlist2","query":"page=1&size=2&order=time","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0043368}
+{"level":"DEBUG","time":"2021-09-03T23:50:40.085+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T23:50:46.834+0800","caller":"logic/post.go:96","msg":"GetPostList2","ids":["6275362447167488","5687489993904128"]}
+{"level":"INFO","time":"2021-09-03T23:50:46.835+0800","caller":"logger/logger.go:81","msg":"/api/v1/postlist2","status":200,"method":"GET","path":"/api/v1/postlist2","query":"page=1&size=2&order=time","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0008964}
+{"level":"DEBUG","time":"2021-09-03T23:51:36.588+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-03T23:51:44.248+0800","caller":"logic/post.go:96","msg":"GetPostList2","ids":["6275362447167488","5687489993904128"]}
+{"level":"DEBUG","time":"2021-09-03T23:51:44.252+0800","caller":"logic/post.go:101","msg":"PostLists","posts":[{"id":"6275362447167488","author_id":"6270743918678016","community_id":3,"status":0,"title":"认知觉醒","content":"认知决定一切","create_time":"2021-09-03T15:36:02+08:00"},{"id":"5687489993904128","author_id":"1594132896157696","community_id":3,"status":0,"title":"DWG","content":"hihao","create_time":"2021-09-02T00:40:03+08:00"}]}
+{"level":"INFO","time":"2021-09-03T23:51:44.258+0800","caller":"logger/logger.go:81","msg":"/api/v1/postlist2","status":200,"method":"GET","path":"/api/v1/postlist2","query":"page=1&size=2&order=time","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.010464}
+{"level":"DEBUG","time":"2021-09-03T23:52:51.988+0800","caller":"logic/post.go:96","msg":"GetPostList2","ids":["6275362447167488","5687489993904128","5682354945265664"]}
+{"level":"DEBUG","time":"2021-09-03T23:52:51.989+0800","caller":"logic/post.go:101","msg":"PostLists","posts":[{"id":"6275362447167488","author_id":"6270743918678016","community_id":3,"status":0,"title":"认知觉醒","content":"认知决定一切","create_time":"2021-09-03T15:36:02+08:00"},{"id":"5687489993904128","author_id":"1594132896157696","community_id":3,"status":0,"title":"DWG","content":"hihao","create_time":"2021-09-02T00:40:03+08:00"},{"id":"5682354945265664","author_id":"1594132896157696","community_id":3,"status":0,"title":"lizhaoshuai","content":"hihao","create_time":"2021-09-02T00:19:38+08:00"}]}
+{"level":"INFO","time":"2021-09-03T23:52:51.991+0800","caller":"logger/logger.go:81","msg":"/api/v1/postlist2","status":200,"method":"GET","path":"/api/v1/postlist2","query":"page=1&size=3&order=time","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0040549}
+{"level":"DEBUG","time":"2021-09-03T23:55:49.878+0800","caller":"logic/post.go:96","msg":"GetPostList2","ids":["6275362447167488"]}
+{"level":"DEBUG","time":"2021-09-03T23:55:49.879+0800","caller":"logic/post.go:101","msg":"PostLists","posts":[{"id":"6275362447167488","author_id":"6270743918678016","community_id":3,"status":0,"title":"认知觉醒","content":"认知决定一切","create_time":"2021-09-03T15:36:02+08:00"}]}
+{"level":"INFO","time":"2021-09-03T23:55:49.879+0800","caller":"logger/logger.go:81","msg":"/api/v1/postlist2","status":200,"method":"GET","path":"/api/v1/postlist2","query":"page=1&size=3&order=score","ip":"::1","user-agent":"PostmanRuntime/7.28.3","errors":"","cost":0.0018942}
+{"level":"DEBUG","time":"2021-09-04T00:11:01.000+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T00:17:30.638+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T00:18:57.196+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T00:19:02.196+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T00:20:50.714+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T00:23:09.627+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T00:25:14.914+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T00:25:22.015+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T00:28:14.551+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T00:32:32.244+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T00:45:24.914+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T13:18:20.535+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T13:24:24.761+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T13:31:32.761+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T13:41:25.595+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T13:41:52.665+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T14:02:24.265+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T14:37:51.937+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T14:54:19.361+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T14:55:11.083+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T15:09:43.941+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T15:10:19.868+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T15:16:30.158+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}

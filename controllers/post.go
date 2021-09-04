@@ -11,6 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//CreatePostHandler 创建帖子
 func CreatePostHandler(c *gin.Context) {
 	//1.获取参数以及参数校验
 	p := new(modules.Post)
@@ -41,6 +42,7 @@ func CreatePostHandler(c *gin.Context) {
 	ResponseSuccess(c, nil)
 }
 
+//GetPostDetailHandler 根据帖子id获取帖子详情
 func GetPostDetailHandler(c *gin.Context) {
 	//1.获取参数，从url中获取帖子的id
 	idStr := c.Param("id")
@@ -62,6 +64,7 @@ func GetPostDetailHandler(c *gin.Context) {
 	ResponseSuccess(c, data)
 }
 
+//GetPostListHandler 根据请求参数获取帖子列表
 func GetPostListHandler(c *gin.Context) {
 	page, size := GetPageInfo(c)
 	data, err := logic.GetPostList(page, size)
@@ -73,3 +76,51 @@ func GetPostListHandler(c *gin.Context) {
 	//2.返回响应
 	ResponseSuccess(c, data)
 }
+
+//GetPostListHandler2 获取帖子列表，帖子列表可根据创建时间和分数来排列
+func GetPostListHandler2(c *gin.Context) {
+	//从query string获取参数
+	p := &modules.ParamPostList{
+		Page:  modules.DefaultPage,
+		Size:  modules.DefaultSize,
+		Order: modules.OrderTime,
+	}
+	if err := c.ShouldBindQuery(p); err != nil {
+		zap.L().Error("ParamPostList with invalid param", zap.Error(err))
+		ResponseError(c, CodeInvalidParam)
+		return
+	}
+	data, err := logic.GetPostListUnion(p)
+	if err != nil {
+		zap.L().Error("logic.GetPostListNew(p) failed", zap.Error(err))
+		ResponseError(c, CodeServerBusy)
+		return
+	}
+	ResponseSuccess(c, data)
+}
+
+////GetCommunityPostListHandlers 根据社区分类，获取同属一个社区的帖子
+//func GetCommunityPostListHandlers(c *gin.Context) {
+//	p := &modules.ParamCommunityPostList{
+//		ParamPostList: &modules.ParamPostList{
+//			Page:  modules.DefaultPage,
+//			Size:  modules.DefaultSize,
+//			Order: modules.OrderTime,
+//		},
+//	}
+//	//从query string获取参数
+//	if err := c.ShouldBindQuery(p); err != nil {
+//		zap.L().Error("ParamCommunityPostList with invalid param", zap.Error(err))
+//		ResponseError(c, CodeInvalidParam)
+//		return
+//	}
+//
+//	data, err := logic.GetCommunitPostList(p)
+//	if err != nil {
+//		zap.L().Error("logic.GetPostList()", zap.Error(err))
+//		ResponseError(c, CodeServerBusy)
+//		return
+//	}
+//	//2.返回响应
+//	ResponseSuccess(c, data)
+//}
