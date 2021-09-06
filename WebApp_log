@@ -938,3 +938,6 @@
 {"level":"DEBUG","time":"2021-09-04T15:09:43.941+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
 {"level":"DEBUG","time":"2021-09-04T15:10:19.868+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
 {"level":"DEBUG","time":"2021-09-04T15:16:30.158+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-04T15:30:19.767+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-06T09:50:56.632+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
+{"level":"DEBUG","time":"2021-09-06T09:54:57.501+0800","caller":"WebApp/main.go:49","msg":"Logger init is ok!!"}
