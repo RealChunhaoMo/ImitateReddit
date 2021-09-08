@@ -6,6 +6,7 @@ import (
 	"WebApp/logger"
 	"net/http"
 
+	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 )
 
@@ -47,5 +48,7 @@ func Setup(mode string) *gin.Engine {
 		v1.POST("/post", controllers.CreatePostHandler)
 		v1.POST("/vote", controllers.PostVoteHandler)
 	}
+	//注册pprof相关路由
+	pprof.Register(r)
 	return r
 }
